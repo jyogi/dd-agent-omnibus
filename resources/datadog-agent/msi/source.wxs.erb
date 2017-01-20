@@ -37,6 +37,9 @@
                         Maximum="$(var.DisplayVersionNumber)" IncludeMaximum='no'/>
     </Upgrade>
 
+    <!-- This is required by WIX -->
+    <Media Id="1" Cabinet="agent.cab" EmbedCab="yes" />
+
     <!-- Close application when uninstalling -->
     <util:CloseApplication Id="CloseAgentManager"
                            Target="agent-manager.exe"
