@@ -238,12 +238,23 @@
         Control="Finish"
         Event="DoAction"
         Value="LaunchApp">
-        NOT Installed
+         WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed
       </Publish>
     </UI>
+
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT"
+              Value="Launch Datadog Agent Manager" />
 
     <WixVariable Id="WixUILicenseRtf" Value="Resources\assets\LICENSE.rtf" />
     <WixVariable Id="WixUIDialogBmp" Value="Resources\assets\dialog_background.bmp" />
     <WixVariable Id="WixUIBannerBmp" Value="Resources\assets\banner_background.bmp" />
+
+
+    <InstallExecuteSequence>
+        <RemoveExistingProducts Before="InstallInitialize" />
+        <Custom Action="WixCloseApplications"
+            After="InstallInitialize"><![CDATA[REMOVE="ALL" OR REINSTALL]]></Custom>
+    </InstallExecuteSequence>
+
   </Product>
 </Wix>
