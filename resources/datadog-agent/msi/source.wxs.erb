@@ -49,12 +49,6 @@
     <!-- No need to restart Windows after the installation -->
     <Property Id="MSIRESTARTMANAGERCONTROL" Value="Disable" />
 
-    <!-- Make sure that we get rid of any older installation of the Agent -->
-    <MajorUpgrade
-      DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />
-
-    <Media Id="1" Cabinet="agent.cab" EmbedCab="yes" />
-
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFiles64Folder">
         <Directory Id="APPLICATIONROOTDIRECTORY" Name="Datadog">
